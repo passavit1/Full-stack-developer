@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            border: 1px solid #2F3336;
+            background-color: black;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .sidebar,
+        .search-box {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid rgb(255, 255, 255, 0.3);
+            border-right: 1px solid rgb(255, 255, 255, 0.3);
+
+        }
+
+        .search-box {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .side-bar-container,
+        .search-box-container {
+            width: 251px;
+            padding: 0 12px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+
+        }
+
+        .search-box-container {
+            display: flex;
+            flex-direction: column;
+            width: 350px;
+            margin-left: 40px;
+
+
+        }
+
+        .search-box-container>input[type="text"] {
+            background-color: #202327;
+            border-radius: 24px;
+            padding: 12px;
+            margin-bottom: 12px;
+            margin-top: 8px;
+        }
+
+        .nav-menu {
+            width: 100%;
+            height: 58px;
+            padding: 4px 0;
+            margin-top: 4px;
+            display: flex;
+            align-items: center;
+
+        }
+
+        .group {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            border-radius: 24px;
+
+        }
+
+        .group:hover {
+            background-color: #16181c;
+        }
+
+        .nav-menu>.group>span {
+            color: white;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+
+        .tweet-button {
+            height: 52px;
+            width: 225px;
+            margin: 16px 0;
+            color: white;
+            background-color: #1C9BEF;
+            border-radius: 52px;
+            border: none;
+        }
+
+        .profile {
+            flex: 1;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .prof {
+            height: 64px;
+            width: 100%;
+            background-color: #16181c;
+            margin: 12px 0;
+            border-radius: 64px;
+        }
+
+        .title {
+            height: 54px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            color: white;
+        }
+
+        .tweet-section {
+            display: flex;
+            border-bottom: 1px solid rgb(255, 255, 255, 0.3);
+            padding: 0 16px;
+
+        }
+
+        .tweet-profile {
+            width: 48px;
+            height: 108px;
+            margin-right: 12px;
+            padding-top: 4px;
+        }
+
+        .write-tweet {
+            flex: 1;
+
+
+        }
+
+        .profile-image {
+            width: 48px;
+            height: 48px;
+            background-color: white;
+            border-radius: 48px;
+
+        }
+
+        input[type="text"] {
+            width: 100%;
+            height: 52px;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            color: white;
+
+        }
+
+        .icon-section {
+            width: 100%;
+            height: 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+
+        }
+
+        .feed {
+            flex: 1;
+
+        }
+
+        .tweet {
+            display: flex;
+            padding: 0 16px;
+            padding-top: 12px;
+            border-bottom: 1px solid rgb(255, 255, 255, 0.3);
+        }
+
+        .tweet-content {
+            flex: 1;
+            position: relative;
+        }
+
+        .name {
+            color: white;
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+        }
+
+        .name>span {
+            opacity: 0.5;
+        }
+
+        .text-content {
+            color: white;
+            font-size: 14px;
+        }
+
+        .tweet-photo {
+            width: 408px;
+            height: 510px;
+            background-color: aqua;
+            border-radius: 16px;
+            margin-top: 12px;
+        }
+
+        .action {
+            display: flex;
+            justify-content: space-between;
+            width: 408px;
+            margin: 12px 0;
+        }
+
+        .action>div {
+            display: flex;
+            align-items: center;
+            opacity: 0.7;
+        }
+
+        .running-number {
+            color: white;
+            margin-left: 12px;
+            font-size: 14px;
+            opacity: 0.5;
+        }
+
+        .more-button {
+            color: white;
+            background-color: transparent;
+            position: absolute;
+            border: none;
+            outline: none;
+            top: 0px;
+            right: 0;
+            width: 36px;
+            height: 36px;
+            border-radius: 36px;
+        }
+
+        .more-button:hover {
+            background-color: #1C9BEF;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .trend-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(22, 24, 28);
+            border-radius: 20px;
+
+        }
+
+        .trend {
+            height: 82px;
+            padding: 12px 16px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+
+        }
+
+        .trend>span {
+            opacity: 0.7;
+            color: rgb(113, 118, 122);
+        }
+
+        .trend>span:nth-child(3) {
+            color: white;
+        }
+
+        .trend>.more-button {
+            top: 5px;
+            right: 5px;
+            position: absolute;
+
+        }
+
+        .trend-container>div:first-child {
+            color: white;
+            font-size: 20px;
+            padding: 12px 16px;
+
+
+        }
+
+        .trend-container>div:last-child {
+            color: rgb(29, 155, 240);
+            font-size: 14px;
+            padding: 16px
+        }
+
+        /* Who to follow container */
+
+        .who-to-follow-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(22, 24, 28);
+            border-radius: 20px;
+            margin-top: 16px;
+            border: 1px;
+            margin-bottom: 16px;
+
+
+
+        }
+
+        /*Title*/
+
+        .who-to-follow-container>div:first-child {
+            color: white;
+            padding: 12px 16px;
+            font-size: 20px;
+            height: 24px;
+            margin-bottom: 12px;
+
+        }
+
+        /* card box */
+
+        .people {
+            width: 100%;
+            height: 72px;
+            padding: 0px 16px;
+
+            display: flex;
+            flex-direction: row;
+
+
+            align-items: center;
+        }
+
+        .item1 {
+            margin-right: 12px;
+        }
+
+        .item2 {
+            color: white;
+            display: flex;
+            flex-direction: column;
+            font-size: 14px;
+        }
+
+        .item2 span:nth-child(2) {
+            opacity: 0.5;
+        }
+
+        .item3 {
+            flex: 1;
+            display: flex;
+            justify-content: end;
+        }
+
+        .follow-button {
+            height: 32px;
+            width: 77px;
+            margin-left: 12px;
+            color: black;
+            background-color: white;
+            border-radius: 52px;
+            border: 1px;
+            padding: 0 16px;
+
+        }
+
+        .show-more {
+            color: rgb(29, 155, 240);
+            font-size: 14px;
+            padding: 16px;
+            height: 52px;
+        }
+
+        /* Term of service*/
+
+        .term-container {
+
+            height: 60px;
+            width: 350px;
+            padding: 0px 16px;
+            margin-bottom: 16px;
+
+        }
+
+        .term-container>div {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0px 16px;
+            position: relative;
+
+        }
+
+
+        .term-container>div>a {
+            font-size: 13px;
+            color: rgb(113, 118, 122);
+            margin: 2px;
+            padding-right: 12px;
+
+        }
+
+        .term-container>div>a:hover {
+            text-decoration: underline;
+
+        }
+
+        .term-container>div>a:last-child {
+            text-decoration: none;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="side-bar-container">
+            <div class="nav-menu"><img
+                    src="https://raw.githubusercontent.com/chanatip-ws/html-css-twitter-home/main/icon/sidebar/twitter.svg"
+                    alt=""></div>
+            <div class="nav-menu">
+                <div class="group"><img
+                        src="https://raw.githubusercontent.com/chanatip-ws/html-css-twitter-home/main/icon/sidebar/home.svg"
+                        alt="">
+                    <span>Home</span>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <div class="group"><img
+                        src="https://raw.githubusercontent.com/chanatip-ws/html-css-twitter-home/main/icon/sidebar/explore.svg"
+                        alt=""><span>Explore</span></div>
+            </div>
+            <div class="nav-menu">
+                <div class="group"><img
+                        src="https://raw.githubusercontent.com/chanatip-ws/html-css-twitter-home/main/icon/sidebar/notifications.svg"
+                        alt=""><span>Notifications</span>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <div class="group"><img
+                        src="https://raw.githubusercontent.com/chanatip-ws/html-css-twitter-home/main/icon/sidebar/messages.svg"
+                        alt=""><span>Messages</span>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <div class="group"><img
+                        src="https://raw.githubusercontent.com/chanatip-ws/html-css-twitter-home/main/icon/sidebar/bookmarks.svg"
+                        alt=""><span>Bookmarks</span>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <div class="group">
+                    <img src="https://raw.githubusercontent.com/chanatip-ws/html-css-twitter-home/main/icon/sidebar/lists.svg"
+                        alt=""><span>Lists</span>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <div class="group">
+                    <img src="https://raw.githubusercontent.com/chanatip-ws/html-css-twitter-home/main/icon/sidebar/profile.svg"
+                        alt=""><span>Profile</span>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <div class="group">
+                    <img src="https://raw.githubusercontent.com/chanatip-ws/html-css-twitter-home/main/icon/sidebar/more.svg"
+                        alt=""><span>More</span>
+                </div>
+            </div>
+            <button class="tweet-button">Tweet</button>
+            <div class="profile">
+                <div class="prof">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="title">Home</div>
+        <div class="tweet-section">
+            <div class="tweet-profile">
+                <div class="profile-image"></div>
+            </div>
+            <div class="write-tweet">
+                <input type="text" placeholder="what's Happening?">
+                <div class="icon-section">
+                    <div class="icon">
+                        <img src="https://raw.githubusercontent.com/chanatip-ws/html-css-twitter-home/main/icon/writeTweet/media.svg"
+                            alt="">
+                        <img src="https://raw.githubusercontent.com/chanatip-ws/html-css-twitter-home/main/icon/writeTweet/gif.svg"
+                            alt="">
+                        <img src="https://raw.githubusercontent.com/chanatip-ws/html-css-twitter-home/main/icon/writeTweet/pole.svg"
+                            alt="">
+                        <img src="https://raw.githubusercontent.com/chanatip-ws/html-css-twitter-home/main/icon/writeTweet/emoji.svg"
+                            alt="">
+                        <img src="https://raw.githubusercontent.com/chanatip-ws/html-css-twitter-home/main/icon/writeTweet/schedule.svg"
+                            alt="">
+                        <img src="https://raw.githubusercontent.com/chanatip-ws/html-css-twitter-home/main/icon/writeTweet/location.svg"
+                            alt="">
+                    </div>
+                    <button class="submit">Tweet</button>
+                </div>
+            </div>
+        </div>
+        <div class="feed">
+            <div class="tweet">
+                <div class="tweet-profile">
+                    <div class="profile-image"></div>
+                </div>
+                <div class="tweet-content">
+                    <div class="name">Nice kick <img
+                            src="https://raw.githubusercontent.com/chanatip-ws/html-css-twitter-home/main/icon/tweet/verify.svg"
+                            alt=""><span>@nacekicks 7h</span></div>
+                    <div class="text-content">some content</div>
+                    <button class="more-button"><img
+                            src="https://raw.githubusercontent.com/chanatip-ws/html-css-twitter-home/main/icon/tweet/more.svg"
+                            alt=""></button>
+                    <div class="tweet-photo"></div>
+                    <div class="action">
+                        <div>
+                            <img src="https://raw.githubusercontent.com/chanatip-ws/html-css-twitter-home/main/icon/tweet/comment.svg"
+                                alt="">
+                            <span class="running-number">99</span>
+                        </div>
+                        <div><img
+                                src="https://raw.githubusercontent.com/chanatip-ws/html-css-twitter-home/main/icon/tweet/retweet.svg"
+                                alt=""><span class="running-number">99</span></div>
+
+                        <div><img
+                                src="https://raw.githubusercontent.com/chanatip-ws/html-css-twitter-home/main/icon/tweet/like.svg"
+                                alt=""><span class="running-number">99</span></div>
+
+                        <div><img
+                                src="https://raw.githubusercontent.com/chanatip-ws/html-css-twitter-home/main/icon/tweet/share.svg"
+                                alt=""></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="search-box">
+        <div class="search-box-container">
+            <input type="text" name="" id="" placeholder="Search Twitter">
+            <div class="trend-container">
+                <div>Trends For You</div>
+                <div class="trend">
+                    <button class="more-button"><img
+                            src="https://raw.githubusercontent.com/chanatip-ws/html-css-twitter-home/main/icon/tweet/more.svg"
+                            alt=""></button>
+                    <span>Trending in Thailand</span>
+                    <span>######</span>
+                    <span>999k Tweets</span>
+                </div>
+                <div class="trend">
+                    <button class="more-button"><img
+                            src="https://raw.githubusercontent.com/chanatip-ws/html-css-twitter-home/main/icon/tweet/more.svg"
+                            alt=""></button>
+                    <span>Trending in Thailand</span>
+                    <span>######</span>
+                    <span>999k Tweets</span>
+                </div>
+                <div class="trend">
+                    <button class="more-button"><img
+                            src="https://raw.githubusercontent.com/chanatip-ws/html-css-twitter-home/main/icon/tweet/more.svg"
+                            alt=""></button>
+                    <span>Trending in Thailand</span>
+                    <span>######</span>
+                    <span>999k Tweets</span>
+                </div>
+                <div class="trend">
+                    <button class="more-button"><img
+                            src="https://raw.githubusercontent.com/chanatip-ws/html-css-twitter-home/main/icon/tweet/more.svg"
+                            alt=""></button>
+                    <span>Trending in Thailand</span>
+                    <span>######</span>
+                    <span>999k Tweets</span>
+                </div>
+                <div>
+                    <span>Show more</span>
+                </div>
+            </div>
+            <div class="who-to-follow-container">
+                <div>Who to follow</div>
+                <div class="people">
+                    <div class="item1">
+                        <div class="profile-image"></div>
+                    </div>
+                    <div class="item2">
+                        <span>Kept by krungsri</span>
+                        <span>@Keptbykrungsri</span>
+                    </div>
+                    <div class="item3">
+                        <button class="follow-button">Follow</button>
+                    </div>
+                </div>
+                <div class="people">
+                    <div class="item1">
+                        <div class="profile-image"></div>
+                    </div>
+                    <div class="item2">
+                        <span>Kept by krungsri</span>
+                        <span>@Keptbykrungsri</span>
+                    </div>
+                    <div class="item3">
+                        <button class="follow-button">Follow</button>
+                    </div>
+                </div>
+                <div class="people">
+                    <div class="item1">
+                        <div class="profile-image"></div>
+                    </div>
+                    <div class="item2">
+                        <span>Kept by krungsri</span>
+                        <span>@Keptbykrungsri</span>
+                    </div>
+                    <div class="item3">
+                        <button class="follow-button">Follow</button>
+                    </div>
+                </div>
+                <div class="show-more">
+                    <span>Show more</span>
+                </div>
+            </div>
+            <div class="term-container">
+                <div>
+                    <a>ข้อตกลงการให้บริการ</a>
+                    <a>นโยบายความเป็นส่วนตัว</a>
+                    <a>นโยบายคุกกี้</a>
+                    <a>การเข้าถึง</a>
+                    <a>ข้อมูลโฆษณา</a>
+                    <a>เพิ่มเติม</a>
+                    <a>© 2022 Twitter, Inc.</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+/*กำหนดขนาดของ Switch*/
+.switch {
+    display: flex;
+    width: 120px;
+    height: 64px;
+
+}
+
+/*Capsule*/
+.slider {
+    border-radius: 40px;
+    flex: 1;
+    border: 2px solid yellowgreen;
+    transition: all 1s ease-in-out;
+    background-color: white;
+}
+
+/*ซ้อนกล่อง checkbox*/
+input[type="checkbox"] {
+    display: none;
+}
+
+/*วงกลม บน Capsule*/
+/*ถ้าไม่ใช้ Before สามารถสร้าง div ไว้ใน div แทนก้ได้*/
+.slider::before {
+    content: "";
+    width: 58px;
+    height: 58px;
+    border-radius: 58px;
+    border: 2px solid red;
+    display: block;
+    margin-top: -1px;
+    margin-left: -2px;
+    background-color: white;
+    transition: all 1s ease-in-out;
+}
+
+input[type="checkbox"]:checked+.slider {
+    background-color: aquamarine;
+    border-color: transparent;
+}
+
+/*ถ้าเปลี่ยนเป็น div ซ้อน div จะเปลี่ยนเป็นแบบนี้
+input[type="checkbox"]:checked+.slider>.div
+*/
+input[type="checkbox"]:checked+.slider::before {
+    transform: translateX(90%);
+    border-color: transparent;
+}

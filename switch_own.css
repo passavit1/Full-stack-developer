@@ -1,0 +1,35 @@
+.sw {
+    width: 200px;
+    height: 50px;
+    background-color: white;
+    border-radius: 40px;
+    position: absolute;
+    border: 2px solid red;
+    transition: all 2s ease-in-out;
+}
+
+
+.cc {
+    width: 100px;
+    height: 50px;
+    border-radius: 40px;
+    background-color: red;
+    transition: all 2s ease-in-out;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"]:checked+.sw>.cc {
+    background-color: green;
+    transform: translateX(100%);
+
+}
+
+input[type="checkbox"]:checked+.sw {
+    background-color: greenyellow;
+    border: 2px solid greenyellow;
+
+
+}
