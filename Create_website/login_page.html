@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <Style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+        body {
+            background-color: rgb(246, 245, 247);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Montserrat', sans-serif;
+
+        }
+
+        .login-page-container {
+            width: 768px;
+            height: 480px;
+            border-radius: 10px;
+            display: flex;
+            box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%)
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        /*Left Side */
+
+        .login-column {
+            background-color: rgb(255, 255, 255);
+            width: 384px;
+            height: 100%;
+
+        }
+
+        .signin-container {
+            margin: 0px 50px;
+            height: 100%;
+
+            width: 284px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+        }
+
+        h1 {
+            font-weight: bold;
+            margin: 0px;
+            font-size: 2em;
+
+        }
+
+        .signin-container>span {
+            font-size: 12px;
+        }
+
+        .signin-container>input[type="email"],
+        input[type="password"] {
+            margin: 8px;
+            padding: 12px 15px;
+            border: none;
+            background-color: rgb(238, 238, 238);
+            width: 100%;
+
+
+        }
+
+        .signin-container>a {
+            font-size: 14px;
+            text-decoration: none;
+            margin: 15px;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+
+        }
+
+        .signin-container>button {
+            border-radius: 20px;
+            background-color: #FF4B2B;
+            border: 1px solid #FF4B2B;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 12px 45px;
+            transition: transform 80ms ease-in;
+            letter-spacing: 1px;
+
+        }
+
+        /*Right Side */
+
+        .overlay-container {
+
+            color: white;
+            padding: 0 40px;
+            height: 100%;
+            width: 384px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(to right, #FF4B2B, #FF416C);
+
+        }
+
+        .overlay-container>h1 {
+            font-weight: bold;
+            margin: 0px;
+            font-size: 2em;
+
+        }
+
+        .overlay-container>p {
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            line-height: 20px;
+        }
+
+        .overlay-container>button {
+            background-color: transparent;
+            border-radius: 20px;
+            border: 1px solid #FFFFFF;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 12px 45px;
+            letter-spacing: 1px;
+            transition: 80ms ease-in;
+
+        }
+
+        /*Footer*/
+
+        footer {
+            background-color: rgb(34, 34, 34);
+            color: #FFFFFF;
+            display: block;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+
+        footer>p {
+
+            margin: 10px;
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: 0.5px;
+        }
+    </Style>
+
+</head>
+
+<body>
+    <div class="login-page-container">
+        <!--Left side-->
+        <div class="login-column">
+            <form class="signin-container">
+                <h1>Sign in</h1>
+                <span>Use your email</span>
+                <input type="email" name="" id="" placeholder="Email">
+                <input type="password" name="" id="" placeholder="Password">
+                <a href="">Forgot your password?</a>
+                <button>SIGN IN</button>
+            </form>
+        </div>
+        <!--Right side-->
+        <div class="overlay-container">
+            <h1>Hello, Friend!</h1>
+            <p>Enter your personal details and start journey with us</p>
+            <button>SIGN UP</button>
+        </div>
+    </div>
+    <footer>
+        <p>Created by Passavit Maicharoen</p>
+    </footer>
+</body>
+
+
+</html>
