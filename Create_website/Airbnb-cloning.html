@@ -242,7 +242,6 @@
         }
 
         .place-container {
-            background-color: aqua;
             height: 170px;
             margin: 10px 0;
             flex-wrap: wrap;
@@ -256,12 +255,12 @@
             height: 70px;
             margin-top: 15px;
             padding-right: 13px;
-            background-color: red;
+
         }
 
         .place-container>div>a {
             display: flex;
-
+            text-decoration: none;
         }
 
         .place-container>div>a>img {
@@ -271,7 +270,51 @@
         }
 
         .place-container>div>a>div {
-            color: white;
+            color: black;
+            margin-left: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .place-container>div>a>div>div:first-child {
+            font-weight: bold;
+        }
+
+        /*accomodations*/
+
+        .accomodations {
+            height: 380.5px;
+            margin: 50px 0;
+            padding: 0 80px;
+        }
+
+        .accomodations>div:first-child {
+            font-size: 32px;
+        }
+
+        .accomoda-container {
+            display: flex;
+            margin: 10px 0;
+
+        }
+
+        .accomoda-container>div>a {
+
+            border-radius: 10px;
+            padding-right: 13px;
+            width: 25%;
+            height: 308px;
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+        }
+
+        .accomoda-container>div>a>img {
+
+            border-radius: 10px;
+            height: 308px;
+            margin-right: 13px;
         }
     </style>
 </head>
@@ -404,57 +447,104 @@
             <div>
                 <a href="#">
                     <img src="/Create_website/AirbnbClone/Locations-1.png" alt="">
-                    <div>Khao Yai</div>
-                    <div>30 minutes by Car</div>
+                    <div>
+                        <div>Khao Yai</div>
+                        <div>30 Minutes by Car</div>
+                    </div>
                 </a>
             </div>
             <div>
                 <a href="#">
                     <img src="/Create_website/AirbnbClone/Locations-3.png" alt="">
-                    <div>Khao Yai</div>
-                    <div>30 minutes by Car</div>
+                    <div>
+                        <div>Chiangrai</div>
+                        <div>1 Hour by Car</div>
+                    </div>
                 </a>
             </div>
             <div>
                 <a href="#">
                     <img src="/Create_website/AirbnbClone/Location-8.png" alt="">
-                    <div>Khao Yai</div>
-                    <div>30 minutes by Car</div>
+                    <div>
+                        <div>Samui</div>
+                        <div>3.5 Hours by Car</div>
+                    </div>
                 </a>
             </div>
             <div>
                 <a href="#">
                     <img src="/Create_website/AirbnbClone/Locations-4.png" alt="">
-                    <div>Khao Yai</div>
-                    <div>30 minutes by Car</div>
+                    <div>
+                        <div>Samet</div>
+                        <div>30 Minutes by Car</div>
+                    </div>
                 </a>
             </div>
             <div>
                 <a href="#">
                     <img src="/Create_website/AirbnbClone/Location-7.png" alt="">
-                    <div>Khao Yai</div>
-                    <div>30 minutes by Car</div>
+                    <div>
+                        <div>Pathum Thani</div>
+                        <div>2 Hours by Car</div>
+                    </div>
                 </a>
             </div>
             <div>
                 <a href="#">
                     <img src="/Create_website/AirbnbClone/Locations-2.png" alt="">
-                    <div>Khao Yai</div>
-                    <div>30 minutes by Car</div>
+                    <div>
+                        <div>Pattaya</div>
+                        <div>45 Minutes by Car</div>
+                    </div>
                 </a>
             </div>
             <div>
                 <a href="#">
                     <img src="/Create_website/AirbnbClone/Location 5.png" alt="">
-                    <div>Khao Yai</div>
-                    <div>30 minutes by Car</div>
+                    <div>
+                        <div>Rayong</div>
+                        <div>45 Minutes by Car</div>
+                    </div>
                 </a>
             </div>
             <div>
                 <a href="#">
                     <img src="/Create_website/AirbnbClone/Location-6.png" alt="">
-                    <div>Khao Yai</div>
-                    <div>30 minutes by Car</div>
+                    <div>
+                        <div>Chiangmai</div>
+                        <div>1 Hour by Car</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!--accomodations-->
+    <section class="accomodations">
+        <div><b>Accomodations</b></div>
+        <div class="accomoda-container">
+            <div>
+                <a href="#">
+                    <img src="/Create_website/AirbnbClone/Accomodations - 1.png" alt="">
+                    <b>Houses</b>
+                </a>
+            </div>
+            <div>
+                <a href="#">
+                    <img src="/Create_website/AirbnbClone/Accomodations-3.png" alt="">
+                    <b>Log Cabins & Country Houses</b>
+                </a>
+            </div>
+            <div>
+                <a href="#">
+                    <img src="/Create_website/AirbnbClone/Accomodations-2.png" alt="">
+                    <b>Unique Spaces</b>
+                </a>
+            </div>
+            <div>
+                <a href="#">
+                    <img src="/Create_website/AirbnbClone/Accomodations-4.png" alt="">
+                    <b>Hot Tubs</b>
                 </a>
             </div>
         </div>
